@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Student List</h3>
+    <button><a th:href="@{/students/new}">Add Student</a></button>
+    <br><br>
+    <div>
+        <table border = "1">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Branch</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each = "student : ${students}">
+                <td th:text = "*{student.name}"></td>
+                <td th:text = "*{student.branch}"></td>
+                <td th:text = "*{student.address}"></td>
+                <td><button><a th:href="@{/students/update/{id}(id=${student.rno})}">Update</a></button></td>
+                <td><button><a th:href="@{/students/delete/{id}(id=${student.rno})}">Delete</a></button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

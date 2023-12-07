@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Add Student Form</h3>
+    <br><br>
+    <form th:action="@{/students}" th:object="${student}" method="post">
+        <input type="hidden" th:field="*{rno}" />
+        <input type="text"
+               th:field="*{name}"
+               placeholder="Student Name"
+               class="form-control mb-4 w-25" />
+        <input type="text"
+               th:field="*{branch}"
+               placeholder="Branch"
+               class="form-control mb-4 w-25" />
+        <input type="text"
+               th:field="*{address}"
+               placeholder="Address"
+               class="form-control mb-4 w-25" />
+        <button type="submit" class="btn btn-info col-2">Submit</button>
+    </form>
+</body>
